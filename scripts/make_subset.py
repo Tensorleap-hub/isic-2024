@@ -31,6 +31,8 @@ def main():
     data_dir = Path(cfg['data_dir'])
     df = pd.read_csv(data_dir / cfg['metadata_file'], low_memory=False)
     df = assign_folds(df, cfg['n_folds'])
+    df[['isic_id', 'patient_id', 'target', 'fold', 'tbp_lv_dnn_lesion_confidence']].to_parquet(
+        data_dir / cfg['folds_file'], index=False)
 
     oof = pd.read_csv(data_dir / cfg['reference_oof_file'])
     merged = df[['isic_id', 'fold']].merge(oof[['isic_id', 'fold']], on='isic_id', suffixes=('', '_ref'))

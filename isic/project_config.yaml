@@ -3,6 +3,7 @@ data:
   images_file: train-image.hdf5
   metadata_file: train-metadata.csv
   subset_file: subset.parquet
+  folds_file: folds.parquet
   reference_oof_file: weights/oof_predictions.csv
   n_folds: 5
   validation_fold: 0
@@ -22,3 +23,22 @@ model:
   input_name: image
   output_index: 0
   labels: [benign, malignant]
+
+train:
+  lr: 1.0e-4
+  lr_decay_rate: 1.0
+  weight_decay: 1.0e-3
+  warmup_ratio: 0.05
+  min_lr: 1.0e-6
+  batch_size: 32
+  batch_size_val: 512
+  num_epochs: 30
+  early_stop_count: 100
+  ratio_int: 1
+  ratio_int_val: 10
+  ratio_upsampling: 2
+  val_confidence_min: 80
+  negative_pool: all
+  num_workers: 4
+  seed: 42
+  runs_dir: runs
