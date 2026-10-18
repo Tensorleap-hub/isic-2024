@@ -1,0 +1,7 @@
+numpy<2
+pandas
+pyarrow
+h5py
+pillow
+pyyaml
+onnxruntime

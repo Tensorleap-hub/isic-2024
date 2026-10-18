@@ -1,0 +1,24 @@
+data:
+  data_dir: /Users/orram/Tensorleap/isic-2024/data
+  images_file: train-image.hdf5
+  metadata_file: train-metadata.csv
+  subset_file: subset.parquet
+  reference_oof_file: weights/oof_predictions.csv
+  n_folds: 5
+  validation_fold: 0
+  train_negatives: 20000
+  val_negatives: 10000
+  seed: 42
+
+image:
+  size: 224
+  mean: [0.485, 0.456, 0.406]
+  std: [0.229, 0.224, 0.225]
+
+model:
+  model_path: model/model.onnx
+  checkpoint: weights/fold_0_epoch_23_score_0.1712.pth
+  backbone: vit_tiny_patch16_224.augreg_in21k_ft_in1k
+  input_name: image
+  output_index: 0
+  labels: [benign, malignant]

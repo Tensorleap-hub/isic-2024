@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "isic-2024"
+version = "0.1.0"
+description = "Tensorleap integration for the ISIC 2024 skin cancer detection challenge"
+authors = ["Or Ram <or.ram@tensorleap.ai>"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.11"
+numpy = "<2"
+pandas = "^2.2"
+pyarrow = "^17.0"
+h5py = "^3.11"
+pillow = "^10.4"
+pyyaml = "^6.0"
+onnxruntime = ">=1.19,<1.23"
+code-loader = "1.0.212"
+scikit-learn = "^1.5"
+
+[tool.poetry.group.export.dependencies]
+torch = "^2.4"
+timm = "^1.0"
+onnx = "^1.16"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
