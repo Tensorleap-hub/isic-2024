@@ -1,5 +1,5 @@
 data:
-  data_dir: /Users/orram/Tensorleap/isic-2024/data
+  data_dir: /Users/orram/Tensorleap/data/isic-2024
   images_file: train-image.hdf5
   metadata_file: train-metadata.csv
   subset_file: subset.parquet
